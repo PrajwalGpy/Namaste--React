@@ -1,34 +1,13 @@
-import React, { useState } from "react";
-
-let Gooo = () => {
-  let [color, setColor] = useState(true);
-
-  function click() {
-    setColor((prev) => !prev);
-  }
-
-  return (
-    <div>
-      <h1
-        className="gooo"
-        style={{ background: color ? "red" : " green " }}
-        onClick={click}
-      >
-        What is your name
-      </h1>
-    </div>
-  );
-};
+import React from "react";
+import NavBar from "./Components/Header";
+import Body from "./Components/Body";
+import "./App.css";
 
 export let App = () => {
   return (
-    <div>
-      <Gooo />
-      <div>Goooooo</div>
-      <div>
-        Goooooo
-        <div>Goooooo</div>
-      </div>
-    </div>
+    <>
+      <NavBar />
+      <Body />
+    </>
   );
 };
