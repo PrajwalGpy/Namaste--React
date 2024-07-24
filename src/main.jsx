@@ -20,7 +20,7 @@ let appRender = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: "/restorent/:rid",
+        path: "/restorent/:resId",
         element: <ReastorentMenu />,
       },
     ],

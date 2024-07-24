@@ -1,17 +1,21 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { MENU_API } from "../utils/consent";
 import Shrimran from "./Shrimran";
 
 const ReastorentMenu = () => {
   let [restData, setRestData] = useState(null);
+  let { resId } = useParams();
+  console.log(resId);
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, []); // Add resId to the dependency array
 
   let fetchData = async () => {
     try {
       let response = await fetch(
-        "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=13.0153961&lng=77.6346399&restaurantId=391270&catalog_qa=undefined&submitAction=ENTER"
+        `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=13.0153961&lng=77.6346399&restaurantId=${resId}`
       );
       let json = await response.json();
       setRestData(json);
@@ -29,7 +33,7 @@ const ReastorentMenu = () => {
     let { itemCards } =
       restData?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]
         ?.card?.card;
-
+    console.log(resId);
     return (
       <div className="rest-menu-container">
         <h1>{name}</h1>
