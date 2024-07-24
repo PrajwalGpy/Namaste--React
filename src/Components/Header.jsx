@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   let [login, setLogin] = useState(true);
@@ -7,12 +8,20 @@ const NavBar = () => {
   }
   return (
     <div className="navabr-container">
-      <img src="/QuickBiteLOGO1.png" alt="logo" />
+      <Link to="/">
+        <img src="/QuickBiteLOGO1.png" alt="logo" />
+      </Link>
       <div className="nav-item">
         <ul>
-          <li>ABout</li>
-          <li>Minu</li>
-          <li>Contact</li>
+          <li>
+            <Link to="/Contact">ABout</Link>
+          </li>
+          <li>
+            <Link to="/Contact">Minu</Link>
+          </li>
+          <li>
+            <Link to="/Contact">Contact</Link>
+          </li>
           <li onClick={chnsge}>{login ? "Login" : "LogOut"}</li>
         </ul>
       </div>
