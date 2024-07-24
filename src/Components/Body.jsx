@@ -5,15 +5,17 @@ import Shrimran from "./Shrimran";
 
 const Body = () => {
   let [fillter, setFileter] = useState([]);
+  let [filleredres, setfilleredres] = useState([]);
+  let [tecxt, setText] = useState("");
 
   function fill() {
     let fillter1 = fillter.filter((item) => {
       return item.info.avgRating >= 4.5;
     });
-    setFileter(fillter1);
+    setfilleredres(fillter1);
   }
   function reset() {
-    setFileter(feacthData);
+    setfilleredres(fillter);
   }
   useEffect(() => {
     feacthData();
@@ -29,6 +31,10 @@ const Body = () => {
       josnData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
+    setfilleredres(
+      josnData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants
+    );
   }
   console.log(fillter);
   return fillter.length === 0 ? (
@@ -36,16 +42,35 @@ const Body = () => {
   ) : (
     <div className="main-contianer">
       <div className="search">
-        {/* <input type="text" id="search-bar" />
-        <label htmlFor="search-bar">Search</label> */}
+        <input
+          type="text"
+          id="search-bar"
+          onChange={(e) => {
+            return setText(e.target.value);
+          }}
+        />
+        <button
+          onClick={() => {
+            let filter = fillter.filter((item) => {
+              return item.info.name.toLowerCase().includes(tecxt.toLowerCase());
+            });
+            return setfilleredres(filter);
+          }}
+        >
+          Search
+        </button>
         <button onClick={fill}>top rated Reastorent</button>
         <button onClick={reset}>Reset</button>
       </div>
-      <div className="resContiner">
-        {fillter.map((item) => {
-          return <RestList data={item} key={item.info.id} />;
-        })}
-      </div>
+      {filleredres.length === 0 ? (
+        <h1>Nothig</h1>
+      ) : (
+        <div className="resContiner">
+          {filleredres.map((item) => {
+            return <RestList data={item} key={item.info.id} />;
+          })}
+        </div>
+      )}
     </div>
   );
 };
