@@ -53,3 +53,15 @@ p {
   height: 60%;
   object-fit: cover;
 }
+
+.shrimral-div {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+}
+.shrimran {
+  width: 200px;
+  height: 200px;
+  margin: 20px;
+  background-color: rgb(179, 187, 193);
+}

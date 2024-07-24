@@ -1,4 +1,4 @@
-export const goo = [
+export const resList = [
   {
     info: {
       id: "169483",
