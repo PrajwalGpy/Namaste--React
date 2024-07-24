@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { resList } from "../utils/resCardsItems";
 import RestList from "./Reastorent";
 import Shrimran from "./Shrimran";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   let [fillter, setFileter] = useState([]);
@@ -67,7 +68,11 @@ const Body = () => {
       ) : (
         <div className="resContiner">
           {filleredres.map((item) => {
-            return <RestList data={item} key={item.info.id} />;
+            return (
+              <Link key={item.info.id} to={"/restorent/" + item.info.id}>
+                <RestList data={item} />;
+              </Link>
+            );
           })}
         </div>
       )}

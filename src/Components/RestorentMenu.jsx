@@ -6,34 +6,37 @@ import Shrimran from "./Shrimran";
 const ReastorentMenu = () => {
   let [restData, setRestData] = useState(null);
   let { resId } = useParams();
-  console.log(resId);
+  console.log("resId:", resId);
 
   useEffect(() => {
-    fetchData();
-  }, []); // Add resId to the dependency array
+    if (resId) {
+      fetchData();
+    }
+  }, [resId]); // Add resId to the dependency array
 
-  let fetchData = async () => {
+  const fetchData = async () => {
     try {
-      let response = await fetch(
-        `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=13.0153961&lng=77.6346399&restaurantId=${resId}`
-      );
+      let response = await fetch(`${MENU_API}${resId}`);
       let json = await response.json();
       setRestData(json);
-      console.log(json);
+      console.log("Fetched data:", json);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   };
 
-  console.log(restData);
+  console.log("restData:", restData);
   if (!restData) return <Shrimran />;
+
   try {
     let { name, costForTwoMessage, cuisines } =
-      restData.data.cards[2].card.card.info || {};
-    let { itemCards } =
+      restData?.data?.cards[2]?.card?.card?.info || {};
+    let itemCards =
       restData?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]
-        ?.card?.card;
-    console.log(resId);
+        ?.card?.card?.itemCards || [];
+
+    console.log("itemCards:", itemCards);
+
     return (
       <div className="rest-menu-container">
         <h1>{name}</h1>
