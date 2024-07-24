@@ -5,6 +5,7 @@ import Body from "./Components/Body";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Contact from "./Components/Contact";
+import ReastorentMenu from "./Components/RestorentMenu";
 let appRender = createBrowserRouter([
   {
     path: "/",
@@ -17,6 +18,10 @@ let appRender = createBrowserRouter([
       {
         path: "/Contact",
         element: <Contact />,
+      },
+      {
+        path: "/restorent/:rid",
+        element: <ReastorentMenu />,
       },
     ],
   },
