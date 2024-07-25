@@ -38,7 +38,7 @@ const Body = () => {
     );
   }
   console.log(fillter);
-  return fillter.length === 0 ? (
+  return fillter.length == [] ? (
     <Shrimran />
   ) : (
     <div className="main-contianer">
