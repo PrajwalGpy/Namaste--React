@@ -17,7 +17,7 @@ let appRender = createBrowserRouter([
       },
       {
         path: "/Contact",
-        element: <Contact />,
+        element: <Contact name={"Prajwal"} />,
       },
       {
         path: "/restorent/:resId",

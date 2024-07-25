@@ -14,6 +14,9 @@ const NavBar = () => {
       <div className="nav-item">
         <ul>
           <li>
+            <Link to="/">Menu</Link>
+          </li>
+          <li>
             <Link to="/Contact">ABout</Link>
           </li>
           <li>
