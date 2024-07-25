@@ -3,6 +3,7 @@ import { resList } from "../utils/resCardsItems";
 import RestList from "./Reastorent";
 import Shrimran from "./Shrimran";
 import { Link } from "react-router-dom";
+import useOnline from "../utils/useOnline";
 
 const Body = () => {
   let [fillter, setFileter] = useState([]);
@@ -38,6 +39,12 @@ const Body = () => {
     );
   }
   console.log(fillter);
+
+  let idOnline = useOnline();
+
+  if (!idOnline) {
+    return <h1>Offline</h1>;
+  }
   return fillter.length == [] ? (
     <Shrimran />
   ) : (

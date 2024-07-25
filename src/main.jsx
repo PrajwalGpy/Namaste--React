@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { App } from "./App.jsx";
 import Body from "./Components/Body";
@@ -6,6 +6,8 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Contact from "./Components/Contact";
 import ReastorentMenu from "./Components/RestorentMenu";
+
+let Glosery = lazy(() => import("./Components/Glosery"));
 let appRender = createBrowserRouter([
   {
     path: "/",
@@ -22,6 +24,14 @@ let appRender = createBrowserRouter([
       {
         path: "/restorent/:resId",
         element: <ReastorentMenu />,
+      },
+      {
+        path: "/Glosery",
+        element: (
+          <Suspense>
+            <Glosery />
+          </Suspense>
+        ),
       },
     ],
   },

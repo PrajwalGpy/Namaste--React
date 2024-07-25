@@ -8,6 +8,8 @@
 * {
   margin: 0;
   padding: 0;
+  text-decoration: none; /* Removes the underline */
+  color: inherit; /* Sets the color to the same as the parent element */
 }
 .nav-item {
   padding: 0 40px;
@@ -64,4 +66,16 @@ p {
   height: 200px;
   margin: 20px;
   background-color: rgb(179, 187, 193);
+}
+.online {
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  position: absolute;
+  top: 15px;
+
+  right: 13px;
+}
+.login {
+  position: relative;
 }
