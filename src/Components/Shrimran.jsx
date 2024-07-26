@@ -1,13 +1,16 @@
+import Shrim from "./shrimranelement";
+
 function Shrimran() {
   return (
-    <div className="shrimral-div">
-      <div className="shrimran"></div>
-      <div className="shrimran"></div>
-      <div className="shrimran"></div>
-      <div className="shrimran"></div>
-      <div className="shrimran"></div>
-      <div className="shrimran"></div>
-      <div className="shrimran"></div>
+    <div className="flex flex-wrap w-[80%] m-auto">
+      <Shrim />
+      <Shrim />
+      <Shrim />
+      <Shrim />
+      <Shrim />
+      <Shrim />
+      <Shrim />
+      <Shrim />
     </div>
   );
 }

@@ -48,7 +48,7 @@ const Body = () => {
   return fillter.length == [] ? (
     <Shrimran />
   ) : (
-    <div className="main-contianer">
+    <div className="w-[80%] m-auto">
       <div className="search">
         <input
           type="text"
@@ -56,6 +56,7 @@ const Body = () => {
           onChange={(e) => {
             return setText(e.target.value);
           }}
+          className="p-2 m-2 font-semibold  rounded-md border-2 border-black"
         />
         <button
           onClick={() => {
@@ -64,20 +65,31 @@ const Body = () => {
             });
             return setfilleredres(filter);
           }}
+          className="p-2 m-2 font-semibold  bg-slate-200 rounded-md hover:bg-slate-300"
         >
           Search
         </button>
-        <button onClick={fill}>top rated Reastorent</button>
-        <button onClick={reset}>Reset</button>
+        <button
+          onClick={fill}
+          className="p-2 m-2 font-semibold  bg-slate-200 rounded-md hover:bg-slate-300"
+        >
+          top rated Reastorent
+        </button>
+        <button
+          onClick={reset}
+          className="p-2 m-2 font-semibold bg-slate-200 rounded-md hover:bg-slate-300"
+        >
+          Reset
+        </button>
       </div>
       {filleredres.length === 0 ? (
         <h1>Nothig</h1>
       ) : (
-        <div className="flex flex-wrap mx-32">
+        <div className="flex flex-wrap  items-center   ">
           {filleredres.map((item) => {
             return (
               <Link key={item.info.id} to={"/restorent/" + item.info.id}>
-                <RestList data={item} />;
+                <RestList data={item} />
               </Link>
             );
           })}

@@ -21,10 +21,12 @@ const ReastorentMenu = () => {
     console.log("itemCards:", itemCards);
 
     return (
-      <div className="rest-menu-container">
-        <h1>{name}</h1>
-        <h2>{costForTwoMessage}</h2>
-        <p>{cuisines ? cuisines.join(", ") : "No cuisines available"}</p>
+      <div className="  w-[80%] m-auto ">
+        <h1 className="text-5xl font-bold ">{name}</h1>
+        <h2 className=" font-bold ">{costForTwoMessage}</h2>
+        <p className=" font-bold ">
+          {cuisines ? cuisines.join(", ") : "No cuisines available"}
+        </p>
         <ul>
           {itemCards.length > 0 ? (
             itemCards.map((item, index) => (

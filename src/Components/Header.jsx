@@ -9,7 +9,7 @@ const NavBar = () => {
     setLogin((prev) => !prev);
   }
   return (
-    <div className="flex justify-between px-10 my-8 shadow-lg">
+    <div className="flex justify-between px-10 my-8 shadow-lg items-center">
       <Link to="/">
         <img src="/QuickBiteLOGO1.png" alt="logo" />
       </Link>
