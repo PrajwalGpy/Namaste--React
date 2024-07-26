@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { resList } from "../utils/resCardsItems";
-import RestList from "./Reastorent";
+import RestList, { GetPromoted } from "./Reastorent";
 import Shrimran from "./Shrimran";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
@@ -9,6 +9,7 @@ const Body = () => {
   let [fillter, setFileter] = useState([]);
   let [filleredres, setfilleredres] = useState([]);
   let [tecxt, setText] = useState("");
+  let PromoTed = GetPromoted(RestList);
 
   function fill() {
     let fillter1 = fillter.filter((item) => {
@@ -87,7 +88,11 @@ const Body = () => {
       ) : (
         <div className="flex flex-wrap  items-center   ">
           {filleredres.map((item) => {
-            return (
+            return item.info.avgRating >= 4.5 ? (
+              <Link key={item.info.id} to={"/restorent/" + item.info.id}>
+                <PromoTed data={item} />
+              </Link>
+            ) : (
               <Link key={item.info.id} to={"/restorent/" + item.info.id}>
                 <RestList data={item} />
               </Link>
