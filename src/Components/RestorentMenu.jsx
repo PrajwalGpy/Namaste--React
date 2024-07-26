@@ -2,12 +2,10 @@ import { useParams } from "react-router-dom";
 import useRestorentMenu from "../utils/useRestorentMenu"; // Fixed typo in import
 import { useState } from "react";
 import RestorentTonnglemenu from "./RestorentTonnglemenu";
-
 import Shrimran from "./Shrimran";
 
 const RestorentMenu = () => {
-  let [tongle, settongle] = useState(true);
-  // Fixed typo in component name
+  const [activeIndex, setActiveIndex] = useState(null);
   let { resId } = useParams();
   console.log("resId:", resId);
   let restData = useRestorentMenu(resId);
@@ -36,16 +34,15 @@ const RestorentMenu = () => {
 
   console.log("kanle");
 
-  function togale() {
-    settongle((prev) => !prev); // Corrected the state update logic
-  }
-  console.log(tongle);
+  const toggle = (index) => {
+    setActiveIndex((prevIndex) => (prevIndex === index ? null : index));
+  };
 
   return (
-    <div className="  w-[80%] m-auto ">
-      <h1 className="text-5xl font-bold ">{name}</h1>
-      <h2 className=" font-bold ">{costForTwoMessage}</h2>
-      <p className=" font-bold ">
+    <div className="w-[80%] m-auto">
+      <h1 className="text-5xl font-bold">{name}</h1>
+      <h2 className="font-bold">{costForTwoMessage}</h2>
+      <p className="font-bold">
         {cuisines ? cuisines.join(", ") : "No cuisines available"}
       </p>
       {categaryfilter.map((i, index) => {
@@ -53,13 +50,15 @@ const RestorentMenu = () => {
         return (
           <div
             key={index}
-            className="bg-gray-400 w-[100%]  m-10 text-center text-xl font-bold"
+            className="bg-slate-300 w-6/12 mx-auto my-8 py-2 shadow-lg text-center text-xl font-bold"
           >
             <div className="flex justify-between px-3">
               <p>{i?.card?.card?.title}</p>
-              <span onClick={togale}>V</span>
+              <span onClick={() => toggle(index)}>V</span>
             </div>
-            {!tongle ? <RestorentTonnglemenu data={categaryfilter} /> : ""}
+            {activeIndex === index && (
+              <RestorentTonnglemenu data={categaryfilter} />
+            )}
           </div>
         );
       })}
