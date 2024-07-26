@@ -9,29 +9,28 @@ const NavBar = () => {
     setLogin((prev) => !prev);
   }
   return (
-    <div className="navabr-container">
+    <div className="flex justify-between px-10 my-8 shadow-lg">
       <Link to="/">
         <img src="/QuickBiteLOGO1.png" alt="logo" />
       </Link>
-      <div className="nav-item">
-        <ul>
-          <li>{console.log(useOnline2)}</li>
-          <li>
+      <div className=" ">
+        <ul className="flex">
+          <li className="mx-10 w-8 text-xl">
             <Link to="/">Menu</Link>
           </li>
-          <li>
+          <li className="mx-10 w-8 text-xl">
             <Link to="/Contact">ABout</Link>
           </li>
-          <li>
+          <li className="mx-10 w-8 text-xl">
             <Link to="/Contact">Minu</Link>
           </li>
-          <li>
+          <li className="mx-10 w-8 text-xl">
             <Link to="/Glosery">Glosery</Link>
           </li>
-          <li>
+          <li className="mx-10 w-8 text-xl">
             <Link to="/Contact">Contact</Link>
           </li>
-          <li onClick={chnsge} className="login">
+          <li onClick={chnsge} className="mx-10 w-8 text-xl">
             {login ? "Login" : "LogOut"}{" "}
             <div
               className="online"

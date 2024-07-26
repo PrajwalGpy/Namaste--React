@@ -73,7 +73,7 @@ const Body = () => {
       {filleredres.length === 0 ? (
         <h1>Nothig</h1>
       ) : (
-        <div className="resContiner">
+        <div className="flex flex-wrap mx-32">
           {filleredres.map((item) => {
             return (
               <Link key={item.info.id} to={"/restorent/" + item.info.id}>
