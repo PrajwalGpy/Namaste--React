@@ -1,7 +1,10 @@
 import CDN_URL from "../utils/consent";
 import "../App.css";
+import UseContext from "../utils/contectapi";
+import { useContext } from "react";
 
 const RestList = (props) => {
+  let { userName } = useContext(UseContext);
   let { data } = props;
   let { name, cuisines, costForTwo, cloudinaryImageId, avgRating } = data?.info;
   return (
@@ -16,6 +19,7 @@ const RestList = (props) => {
       <p>{costForTwo}</p>
       <p className="cuisines">{cuisines.join(",")}</p>
       <p>{avgRating}</p>
+      <p>{userName}</p>
     </div>
   );
 };

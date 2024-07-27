@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
+import UseContext from "../utils/contectapi";
 
 const NavBar = () => {
+  let { userName } = useContext(UseContext);
+  console.log("logggg", userName);
   let [login, setLogin] = useState(true);
   let useOnline2 = useOnline();
   function chnsge() {
@@ -30,6 +33,7 @@ const NavBar = () => {
           <li className="mx-10 w-8 text-xl">
             <Link to="/Contact">Contact</Link>
           </li>
+          <li>{userName}</li>
           <li onClick={chnsge} className="mx-10 w-8 text-xl">
             {login ? "Login" : "LogOut"}{" "}
             <div

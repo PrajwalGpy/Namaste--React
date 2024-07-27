@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useContext, useState, useEffect } from "react";
 import NavBar from "./Components/Header";
+import UseContext from "./utils/contectapi";
 import "./App.css";
 import { Outlet } from "react-router-dom";
 export let App = () => {
+  let goooo = " Prajwal Gopal Poojary";
+  let [userdname, setUsername] = useState(goooo);
+
   return (
-    <>
-      <NavBar />
-      <Outlet />
-    </>
+    <div>
+      <UseContext.Provider value={{ userName: userdname, setUsername }}>
+        <NavBar />
+        <Outlet />
+      </UseContext.Provider>
+    </div>
   );
 };

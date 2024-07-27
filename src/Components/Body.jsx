@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { resList } from "../utils/resCardsItems";
 import RestList, { GetPromoted } from "./Reastorent";
 import Shrimran from "./Shrimran";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
+import UseContext from "../utils/contectapi";
 
 const Body = () => {
   let [fillter, setFileter] = useState([]);
+  let { userName, setUsername } = useContext(UseContext);
   let [filleredres, setfilleredres] = useState([]);
   let [tecxt, setText] = useState("");
+  let [tecxte, setTexte] = useState(userName);
   let PromoTed = GetPromoted(RestList);
 
   function fill() {
@@ -82,6 +85,15 @@ const Body = () => {
         >
           Reset
         </button>
+        <input
+          value={userName}
+          type="text"
+          id="search-bar"
+          onChange={(e) => {
+            return setUsername(e.target.value);
+          }}
+          className="p-2 m-2 font-semibold  rounded-md border-2 border-black"
+        />
       </div>
       {filleredres.length === 0 ? (
         <h1>Nothig</h1>

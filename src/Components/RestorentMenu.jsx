@@ -54,7 +54,9 @@ const RestorentMenu = () => {
           >
             <div className="flex justify-between px-3">
               <p>{i?.card?.card?.title}</p>
-              <span onClick={() => toggle(index)}>V</span>
+              <span onClick={() => toggle(index)} className="cursor-pointer">
+                V
+              </span>
             </div>
             {activeIndex === index && (
               <RestorentTonnglemenu data={categaryfilter} />
