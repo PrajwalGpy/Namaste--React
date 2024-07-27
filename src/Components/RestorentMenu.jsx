@@ -50,7 +50,7 @@ const RestorentMenu = () => {
         return (
           <div
             key={index}
-            className="bg-slate-300 w-6/12 mx-auto my-8 py-2 shadow-lg text-center text-xl font-bold"
+            className="bg-slate-300  mx-auto my-8 py-2 shadow-lg text-center text-xl font-bold"
           >
             <div className="flex justify-between px-3">
               <p>{i?.card?.card?.title}</p>

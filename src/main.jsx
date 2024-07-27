@@ -6,6 +6,7 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Contact from "./Components/Contact";
 import ReastorentMenu from "./Components/RestorentMenu";
+import Cart from "./Components/Cart.jsx";
 
 let Glosery = lazy(() => import("./Components/Glosery"));
 let appRender = createBrowserRouter([
@@ -24,6 +25,10 @@ let appRender = createBrowserRouter([
       {
         path: "/restorent/:resId",
         element: <ReastorentMenu />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
       {
         path: "/Glosery",

@@ -2,8 +2,10 @@ import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 import UseContext from "../utils/contectapi";
+import { useSelector } from "react-redux";
 
 const NavBar = () => {
+  let itemList = useSelector((store) => store.cart.items);
   let { userName } = useContext(UseContext);
   console.log("logggg", userName);
   let [login, setLogin] = useState(true);
@@ -25,15 +27,16 @@ const NavBar = () => {
             <Link to="/Contact">ABout</Link>
           </li>
           <li className="mx-10 w-8 text-xl">
-            <Link to="/Contact">Minu</Link>
+            <Link to="/Contact">Menu</Link>
           </li>
-          <li className="mx-10 w-8 text-xl">
-            <Link to="/Glosery">Glosery</Link>
-          </li>
+
           <li className="mx-10 w-8 text-xl">
             <Link to="/Contact">Contact</Link>
           </li>
-          <li>{userName}</li>
+          <li className="mx-10 w-8 text-xl">
+            <Link to="/cart">Cart({itemList.length}items)</Link>
+          </li>
+          {/* <li>{userName}</li> */}
           <li onClick={chnsge} className="mx-10 w-8 text-xl">
             {login ? "Login" : "LogOut"}{" "}
             <div
