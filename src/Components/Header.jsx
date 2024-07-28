@@ -31,7 +31,7 @@ const NavBar = () => {
           </li>
 
           <li className="mx-10 w-8 text-xl">
-            <Link to="/Contact">Contact</Link>
+            <Link to="/Glosery">Glosery</Link>
           </li>
           <li className="mx-10 w-8 text-xl">
             <Link to="/cart">Cart({itemList.length}items)</Link>
